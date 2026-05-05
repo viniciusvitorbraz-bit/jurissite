@@ -430,71 +430,6 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
 </section>
 
 
-<!-- PROBLEMS -->
-<section class="section">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:4rem;" class="fade-up">
-      <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:1rem;">O Problema</div>
-      <h2 style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:#fff;margin-bottom:1.5rem;">Escritórios perdem tempo, dinheiro e clientes por falta de organização</h2>
-      <p style="font-size:1.125rem;color:#94a3b8;max-width:680px;margin:0 auto;line-height:1.7;">A maioria dos escritórios ainda opera com ferramentas fragmentadas que não conversam entre si.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);border:1px dashed rgba(255,255,255,0.1);">
-      <div id="problem-card-1" style="border-right:1px dashed rgba(255,255,255,0.1);border-bottom:1px dashed rgba(255,255,255,0.1);"></div>
-      <div id="problem-card-2" style="border-right:1px dashed rgba(255,255,255,0.1);border-bottom:1px dashed rgba(255,255,255,0.1);"></div>
-      <div id="problem-card-3" style="border-bottom:1px dashed rgba(255,255,255,0.1);"></div>
-      <div id="problem-card-4" style="border-right:1px dashed rgba(255,255,255,0.1);"></div>
-      <div id="problem-card-5" style="border-right:1px dashed rgba(255,255,255,0.1);"></div>
-      <div id="problem-card-6"></div>
-    </div>
-    
-    <script type="text/babel">
-    {(() => {
-      const problems = [
-        {
-          icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>,
-          title: "Prazos perdidos",
-          description: "Planilhas, post-its e memória. Um prazo esquecido pode significar perda de direito do cliente."
-        },
-        {
-          icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/><path d="M3 7l9 6 9-6"/></svg>,
-          title: "Documentos espalhados",
-          description: "Peças em e-mail, Drive, pen drive. Ninguém sabe qual é a versão correta do documento."
-        },
-        {
-          icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-          title: "Sem isolamento de dados",
-          description: "Sistemas genéricos sem separação por escritório. Risco de vazamento entre organizações."
-        },
-        {
-          icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>,
-          title: "Zero rastreabilidade",
-          description: "Quem alterou o que? Quando? Sem trilha de auditoria, qualquer erro é invisível até ser tarde."
-        },
-        {
-          icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M9 9h6M9 15h2"/></svg>,
-          title: "Financeiro desconectado",
-          description: "Horas trabalhadas em uma planilha, faturas em outra. Tempo perdido conciliando dados."
-        },
-        {
-          icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-          title: "Equipe sem visibilidade",
-          description: "Gestor não sabe a carga de cada advogado. Distribuição de tarefas por instinto."
-        }
-      ];
-      
-      problems.forEach((problem, idx) => {
-        const root = document.getElementById(`problem-card-${idx + 1}`);
-        if (root && window.GlowingCard) {
-          ReactDOM.createRoot(root).render(
-            <window.GlowingCard {...problem} />
-          );
-        }
-      });
-    })()}
-    </script>
-  </div>
-</section>
-
 <!-- FEATURES -->
 <section id="funcionalidades" class="section" style="background: #0a0a0a; padding-bottom: 2rem;">
   <div class="container">
@@ -1367,8 +1302,13 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
       </div>
 
       <!-- Premium -->
-      <div class="pricing-card">
+      <div class="pricing-card pricing-card--gold">
+        <div class="pricing-trail pricing-trail--gold"></div>
         <div class="pricing-header">
+          <div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,169,110,.15);border:1px solid rgba(201,169,110,.35);border-radius:999px;padding:.3rem .9rem;font-size:.68rem;font-weight:700;color:#C9A96E;letter-spacing:.08em;margin-bottom:1rem;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="#C9A96E" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            PREMIUM
+          </div>
           <h3 class="pricing-name">Premium</h3>
           <p class="pricing-info">Para escritórios com alta demanda e operação estruturada.</p>
         </div>
@@ -1377,10 +1317,17 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
           <div class="pricing-row"><span class="pricing-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Processos</span><strong>Ilimitados</strong></div>
           <div class="pricing-row"><span class="pricing-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>Consultas IA / mês</span><strong>Ilimitado</strong></div>
           <div class="pricing-row"><span class="pricing-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Jurisprudência</span><strong>Incluído</strong></div>
-          <div class="pricing-row" style="border-bottom:none;"><span class="pricing-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Auditoria & RLS</span><strong>Incluído</strong></div>
+          <div class="pricing-row"><span class="pricing-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Auditoria & RLS</span><strong>Incluído</strong></div>
+          <div class="pricing-row" style="border-bottom:none;">
+            <span class="pricing-label" style="color:#C9A96E;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+              Transcrição Nativa IA
+            </span>
+            <strong style="color:#C9A96E;">Incluído</strong>
+          </div>
         </div>
         <div class="pricing-cta">
-          <a href="#contato" class="pricing-btn">
+          <a href="#contato" class="pricing-btn pricing-btn--gold">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             Falar com a equipe
           </a>
@@ -1405,6 +1352,10 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
   border-color: rgba(59,130,246,0.45);
   background: rgba(10,14,28,0.97);
 }
+.pricing-card--gold {
+  border-color: rgba(201,169,110,0.45);
+  background: rgba(18,14,8,0.97);
+}
 .pricing-header {
   padding: 1.5rem 1.5rem 1.25rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -1412,6 +1363,9 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
 }
 .pricing-card--highlight .pricing-header {
   background: rgba(59,130,246,0.04);
+}
+.pricing-card--gold .pricing-header {
+  background: rgba(201,169,110,0.04);
 }
 .pricing-name {
   font-size: 1.625rem;
@@ -1451,6 +1405,7 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 .pricing-card--highlight .pricing-cta { background: rgba(59,130,246,0.04); }
+.pricing-card--gold .pricing-cta { background: rgba(201,169,110,0.04); }
 .pricing-btn {
   display: flex;
   align-items: center;
@@ -1473,6 +1428,11 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
   background: linear-gradient(135deg, #3B82F6 0%, #6b7280 100%);
   border: none;
 }
+.pricing-btn--gold {
+  background: linear-gradient(135deg, #C9A96E 0%, #8a6e3e 100%);
+  border: none;
+  color: #1a1000;
+}
 /* Border trail on highlighted card */
 .pricing-trail {
   pointer-events: none;
@@ -1491,7 +1451,16 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
   animation: pricing-trail 8s linear infinite;
   offset-path: rect(0 100% 100% 0 round 16px);
 }
+.pricing-trail--gold::after {
+  background: radial-gradient(circle, rgba(201,169,110,.45) 0%, transparent 65%);
+  animation: pricing-trail-gold 8s linear infinite;
+  offset-path: rect(0 100% 100% 0 round 16px);
+}
 @keyframes pricing-trail {
+  0%   { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+@keyframes pricing-trail-gold {
   0%   { offset-distance: 0%; }
   100% { offset-distance: 100%; }
 }
