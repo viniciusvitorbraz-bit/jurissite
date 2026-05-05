@@ -584,6 +584,264 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
         }
       })()}
       </script>
+
+      <!-- FINANCEIRO -->
+      <div style="margin-top:5rem;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;" class="fade-up">
+          <div style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(34,197,94,.3);background:rgba(34,197,94,.07);display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.375rem;font-weight:700;color:#fff;">Financeiro</h3>
+            <p style="font-size:1rem;color:#64748b;">Honorários, faturas, despesas e tempo registrados onde pertencem — dentro do caso.</p>
+          </div>
+        </div>
+        <div id="bento-financeiro-root"></div>
+        <script type="text/babel">
+        {(() => {
+          const BentoFinanceiro = () => (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+              <BentoCard
+                colSpan={2} hasPersistentHover={true}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>}
+                iconBg="rgba(34,197,94,.15)"
+                title="Honorários com rastreabilidade do combinado ao recebido"
+                meta="Por caso · Por cliente"
+                status="Financeiro"
+                description="Registre honorários fixos, por êxito ou por hora trabalhada, sempre vinculados ao caso e ao cliente. Cada combinação vira uma fatura. Cada fatura tem status rastreado — em aberto, parcialmente paga, quitada, vencida. Nenhum valor fica flutuando em planilha separada."
+                practiceNote="O cliente questiona o valor que deve. Em dez segundos você abre a ficha financeira dele: o que foi combinado em cada caso, o que foi faturado, o que foi pago parcelado, o que venceu e o que ainda está em aberto — com datas e comprovantes registrados."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>}
+                iconBg="rgba(34,197,94,.15)"
+                title="Lançamentos de despesa vinculados ao caso"
+                meta="Categorizado"
+                status="Despesas"
+                description="Custas, honorários periciais, diligências e outras despesas são registradas com categoria, data de competência e vínculo direto ao caso ou processo. O financeiro para de ser uma gaveta de recibos e começa a ser dado operacional."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>}
+                iconBg="rgba(34,197,94,.15)"
+                title="Controle de horas trabalhadas por advogado"
+                meta="Time entries"
+                status="Horas"
+                description="Registre o tempo dedicado a cada caso por advogado ou estagiário. As entradas de tempo alimentam as faturas de honorários por hora e o relatório de produtividade por membro da equipe. Fim do honorário estimado no chute."
+              />
+              <BentoCard
+                colSpan={2}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>}
+                iconBg="rgba(34,197,94,.15)"
+                title="Dashboard financeiro com KPIs reais da operação"
+                meta="Exportável · PDF e Excel"
+                status="Relatórios"
+                description="Receita do mês, inadimplência em aberto, despesas por categoria e produção por advogado em uma tela. Filtros por período, por caso e por cliente. Exportação completa para Excel e PDF — relatório pronto para reunião de gestão sem montar nada manualmente."
+                practiceNote="Final do mês. O gestor abre o dashboard, filtra o trimestre, vê quais casos geraram receita, quais clientes estão inadimplentes e qual advogado produziu mais. Tudo em uma tela, sem pedir relatório para ninguém."
+              />
+            </div>
+          );
+          const finRoot = document.getElementById('bento-financeiro-root');
+          if (finRoot && !finRoot._mounted) { finRoot._mounted = true; ReactDOM.createRoot(finRoot).render(<BentoFinanceiro />); }
+        })()}
+        </script>
+      </div>
+
+      <!-- GESTÃO DOCUMENTAL -->
+      <div style="margin-top:5rem;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;" class="fade-up">
+          <div style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(96,165,250,.3);background:rgba(96,165,250,.07);display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.375rem;font-weight:700;color:#fff;">Gestão Documental</h3>
+            <p style="font-size:1rem;color:#64748b;">Peças, contratos e arquivos com versão, categoria e acesso controlado — organizados por caso.</p>
+          </div>
+        </div>
+        <div id="bento-documental-root"></div>
+        <script type="text/babel">
+        {(() => {
+          const BentoDocumental = () => (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+              <BentoCard
+                colSpan={2} hasPersistentHover={true}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>}
+                iconBg="rgba(96,165,250,.15)"
+                title="Biblioteca com tudo vinculado ao lugar certo"
+                meta="Por caso · processo · cliente"
+                status="Documentos"
+                description="Cada documento é categorizado, datado e vinculado ao caso, processo ou cliente correto. Filtre por tipo, status de processamento, categoria ou período. Busca por nome. Visualize sem baixar. Baixe com permissão. Nenhum arquivo vive solto em pasta compartilhada ou e-mail."
+                practiceNote="O advogado precisa da petição inicial protocolada no mês passado. Abre o processo, filtra por categoria "petições", encontra o arquivo em segundos — sem ligar para o colega, sem revirar o Drive, sem abrir e-mail antigo."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>}
+                iconBg="rgba(96,165,250,.15)"
+                title="Upload com processamento automático de PDF"
+                meta="OCR · Extração"
+                status="Processamento"
+                description="PDFs enviados passam por extração automática de texto via worker dedicado. O conteúdo fica indexado e consultável — sem precisar abrir o arquivo para lembrar o que tinha dentro. Documentos ilegíveis ou corrompidos são sinalizados imediatamente."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>}
+                iconBg="rgba(96,165,250,.15)"
+                title="Acesso por URL temporária assinada"
+                meta="MinIO · S3"
+                status="Seguro"
+                description="Nenhum documento fica com URL pública permanente. Cada visualização ou download gera uma URL assinada com tempo de expiração. Sem o sistema, o arquivo não é acessível — mesmo que alguém copie o link."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>}
+                iconBg="rgba(96,165,250,.15)"
+                title="Política de retenção por categoria"
+                meta="Configurável"
+                status="Retenção"
+                description="Defina por quantos anos cada tipo de documento deve ser retido. Documentos próximos do vencimento aparecem sinalizados. Compliance com as obrigações de guarda sem depender de memória ou calendário manual."
+              />
+              <BentoCard
+                colSpan={2}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>}
+                iconBg="rgba(96,165,250,.15)"
+                title="Dossiê completo gerado em um clique"
+                meta="PDF · Por cliente · Por processo"
+                status="Exportação"
+                description="Selecione um processo ou cliente e gere um dossiê completo em PDF — dados cadastrais, histórico processual, documentos selecionados e linha do tempo de eventos. Pronto para entregar ao cliente, ao perito ou arquivar fisicamente."
+                practiceNote="Cliente encerra o contrato e pede toda a documentação do caso. Em vez de montar uma pasta manualmente, você gera o dossiê PDF com tudo organizado em menos de um minuto."
+              />
+            </div>
+          );
+          const docRoot = document.getElementById('bento-documental-root');
+          if (docRoot && !docRoot._mounted) { docRoot._mounted = true; ReactDOM.createRoot(docRoot).render(<BentoDocumental />); }
+        })()}
+        </script>
+      </div>
+
+      <!-- TAREFAS -->
+      <div style="margin-top:5rem;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;" class="fade-up">
+          <div style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(167,139,250,.3);background:rgba(167,139,250,.07);display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.375rem;font-weight:700;color:#fff;">Tarefas</h3>
+            <p style="font-size:1rem;color:#64748b;">Tudo o que precisa ser feito, por quem, vinculado ao caso certo, com prazo e prioridade.</p>
+          </div>
+        </div>
+        <div id="bento-tarefas-root"></div>
+        <script type="text/babel">
+        {(() => {
+          const BentoTarefas = () => (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+              <BentoCard
+                colSpan={2} hasPersistentHover={true}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>}
+                iconBg="rgba(167,139,250,.15)"
+                title="10 tipos de tarefa, cada uma sabendo de onde veio"
+                meta="Vinculada ao caso ou processo"
+                status="Tarefas"
+                description="Petição, audiência, reunião, protocolo, ligação, análise, pesquisa, diligência, retorno ao cliente e geral. Cada tarefa criada dentro de um processo já nasce vinculada a ele. Quem criou, quem é o responsável, qual é a prioridade e de qual processo veio — sem ambiguidade."
+                practiceNote="Uma publicação entra no diário. O advogado cria uma tarefa "elaborar impugnação" do tipo petição, prioridade urgente, diretamente vinculada ao processo, atribuída ao associado responsável — sem WhatsApp, sem e-mail, sem post-it."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>}
+                iconBg="rgba(167,139,250,.15)"
+                title="Quatro níveis de prioridade, status rastreado"
+                meta="Baixa · Média · Alta · Urgente"
+                status="Prioridade"
+                description="Marque urgente o que não pode esperar, filtre por prioridade e veja de imediato o que está bloqueado, em andamento ou concluído. O gestor enxerga a fila real da equipe sem precisar perguntar a ninguém."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>}
+                iconBg="rgba(167,139,250,.15)"
+                title="Tarefas criadas a partir de prazos e publicações"
+                meta="Fluxo integrado"
+                status="Integrado"
+                description="Prazos e publicações podem gerar tarefas diretamente — com o contexto do processo já preenchido. A providência nasce dentro do fluxo, não num aplicativo separado que ninguém abre."
+              />
+              <BentoCard
+                colSpan={2}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>}
+                iconBg="rgba(167,139,250,.15)"
+                title="Histórico completo de cada tarefa"
+                meta="Linha do tempo"
+                status="Histórico"
+                description="Cada tarefa tem uma página própria com linha do tempo de status: quando foi criada, quando foi iniciada, quando foi bloqueada, quando foi concluída e por quem em cada etapa. Se uma tarefa reabrir, o histórico anterior está preservado. Nada se perde."
+                practiceNote="O sócio revisa uma tarefa concluída e quer saber por que demorou. Abre a linha do tempo: criada segunda, iniciada quarta, bloqueada quinta aguardando documento do cliente, retomada e concluída na sexta. Tudo registrado sem ninguém ter escrito nada manualmente."
+              />
+            </div>
+          );
+          const tarRoot = document.getElementById('bento-tarefas-root');
+          if (tarRoot && !tarRoot._mounted) { tarRoot._mounted = true; ReactDOM.createRoot(tarRoot).render(<BentoTarefas />); }
+        })()}
+        </script>
+      </div>
+
+      <!-- EQUIPE E CONTROLE DE ACESSO -->
+      <div style="margin-top:5rem;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;" class="fade-up">
+          <div style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(248,113,113,.3);background:rgba(248,113,113,.07);display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.375rem;font-weight:700;color:#fff;">Equipe e Controle de Acesso</h3>
+            <p style="font-size:1rem;color:#64748b;">Cada membro enxerga o que deve enxergar. Cada ação tem nome, data e responsável.</p>
+          </div>
+        </div>
+        <div id="bento-equipe-root"></div>
+        <script type="text/babel">
+        {(() => {
+          const BentoEquipe = () => (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+              <BentoCard
+                colSpan={3} hasPersistentHover={true}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+                iconBg="rgba(248,113,113,.15)"
+                title="18+ permissões granulares sobre cada módulo"
+                meta="RBAC · 8 perfis"
+                status="Permissões"
+                description="Sócio, Advogado Sênior, Advogado, Estagiário, Assistente Administrativo, Financeiro, Visualizador e Administrador. Cada perfil tem permissões configuradas individualmente por módulo: quem pode criar, ler, editar, excluir, exportar e gerenciar. Nenhum estagiário acessa o financeiro. Nenhum assistente vê o que não é da sua área."
+                practiceNote="Um novo associado entra no escritório. Recebe o perfil "Advogado", já com acesso a processos, clientes e tarefas, sem acesso ao financeiro completo e sem permissão de excluir nada. Em um clique, sem configurar nada do zero."
+              />
+              <BentoCard
+                colSpan={1}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" strokeWidth="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>}
+                iconBg="rgba(248,113,113,.15)"
+                title="Dados isolados por escritório no banco"
+                meta="Row Level Security"
+                status="RLS"
+                description="O isolamento entre organizações é garantido pelo PostgreSQL via Row Level Security em todas as 19+ tabelas do sistema. Nem com acesso direto ao banco, nem com erro de código, os dados de um escritório são visíveis para outro. Não é configuração — é estrutura."
+              />
+              <BentoCard
+                colSpan={2}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>}
+                iconBg="rgba(248,113,113,.15)"
+                title="Convite por e-mail com perfil pré-definido"
+                meta="Onboarding seguro"
+                status="Membros"
+                description="Convide membros com o perfil já escolhido. O usuário recebe o e-mail, valida o endereço, cria a senha e entra direto no workspace correto — com exatamente as permissões definidas no convite. Sem configuração posterior, sem acesso provisório."
+              />
+              <BentoCard
+                colSpan={3}
+                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>}
+                iconBg="rgba(248,113,113,.15)"
+                title="Toda alteração registrada: antes, depois, quem, quando e por qual requisição"
+                meta="Auditoria completa"
+                status="Auditoria"
+                description="Cada mutação no sistema — criação, edição ou exclusão — gera um registro de auditoria com o estado anterior, o estado novo, o usuário que executou, o timestamp e o ID da requisição. Filtre por entidade (cliente, processo, documento, financeiro) ou por tipo de ação. O log é imutável: nem admin apaga. Se algo mudou no sistema, há registro."
+                practiceNote="O valor da causa de um processo foi alterado e ninguém assume. O gestor abre o audit log, filtra por "processes" e "update", encontra o registro em segundos: estava R$ 50.000, foi alterado para R$ 180.000, pelo advogado X, às 16h42 de terça. Caso encerrado."
+              />
+            </div>
+          );
+          const eqRoot = document.getElementById('bento-equipe-root');
+          if (eqRoot && !eqRoot._mounted) { eqRoot._mounted = true; ReactDOM.createRoot(eqRoot).render(<BentoEquipe />); }
+        })()}
+        </script>
+      </div>
+
     </div>
   </div>
 </section>
