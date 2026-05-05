@@ -529,6 +529,7 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
             </div>
           );
         };
+        window.BentoCard = BentoCard;
 
         const BentoProcessual = () => (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
@@ -599,6 +600,8 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
         <div id="bento-financeiro-root"></div>
         <script type="text/babel">
         {(() => {
+          const BentoCard = window.BentoCard;
+          if (!BentoCard) return;
           const BentoFinanceiro = () => (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
               <BentoCard
@@ -661,6 +664,8 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
         <div id="bento-documental-root"></div>
         <script type="text/babel">
         {(() => {
+          const BentoCard = window.BentoCard;
+          if (!BentoCard) return;
           const BentoDocumental = () => (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
               <BentoCard
@@ -732,6 +737,8 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
         <div id="bento-tarefas-root"></div>
         <script type="text/babel">
         {(() => {
+          const BentoCard = window.BentoCard;
+          if (!BentoCard) return;
           const BentoTarefas = () => (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
               <BentoCard
@@ -794,6 +801,8 @@ ReactDOM.render(<App />, document.getElementById('tweaks-root'));
         <div id="bento-equipe-root"></div>
         <script type="text/babel">
         {(() => {
+          const BentoCard = window.BentoCard;
+          if (!BentoCard) return;
           const BentoEquipe = () => (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
               <BentoCard
